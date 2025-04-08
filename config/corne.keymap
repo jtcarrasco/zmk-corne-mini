@@ -60,88 +60,6 @@
 
     //
 
-    macros {
-        SC_V: clipboard {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_press>, <&kp V &kp RIGHT_GUI>;
-
-            label = "CLIPBOARD";
-        };
-
-        SC_COPY: sc_cut {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_press>, <&kp LEFT_CONTROL &kp C>;
-
-            label = "SC_CUT";
-        };
-
-        SC_CUT: SC_CUT {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_press>, <&kp LEFT_CONTROL &kp X>;
-
-            label = "SC_CUT";
-        };
-
-        SC_PSTE: SC_PSTE {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_press>, <&kp LEFT_CONTROL &kp V>;
-
-            label = "SC_PSTE";
-        };
-
-        SC_SAVE: SC_SAVE {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_press>, <&kp LEFT_CONTROL &kp S>;
-
-            label = "SC_SAVE";
-        };
-
-        SC_RFH: SC_RFH {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_press>, <&kp LEFT_CONTROL &kp R>;
-
-            label = "SC_RFH";
-        };
-
-        SC_AC: SC_AC {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_press>, <&kp LEFT_CONTROL &kp N0>;
-
-            label = "SC_AC";
-        };
-
-        SC_UNDO: SC_UNDO {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_press>, <&kp LEFT_CONTROL &kp Z>;
-
-            label = "SC_UNDO";
-        };
-
-        SC_OUT: SC_OUT {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_press>, <&kp LEFT_CONTROL &kp MINUS>;
-
-            label = "SC_OUT";
-        };
-
-        SC_IN: SC_IN {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_press>, <&kp LEFT_CONTROL &kp PLUS>;
-
-            label = "SC_IN";
-        };
-    };
-
     keymap {
         compatible = "zmk,keymap";
 
@@ -172,10 +90,10 @@
             // | GUI | CTRL | SHFT | LWR | SPC |   | ENT | RSE  | BKSP | ALT | ESC |
 
             bindings = <
-&none  &none   &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &none            &kp DELETE  &SC_AC    &SC_OUT       &SC_IN     &kp BACKSPACE    &none
-&none  &none   &kp NUMBER_4  &kp N5        &kp NUMBER_6  &kp PAGE_UP      &kp LEFT    &kp DOWN  &kp UP_ARROW  &kp RIGHT  &SC_RFH          &none
-&none  &trans  &kp N7        &kp N8        &kp N9        &kp PAGE_DOWN    &SC_UNDO    &SC_CUT   &SC_COPY      &SC_PSTE   &kp RIGHT_SHIFT  &none
-                             &kp N0        &trans        &SC_V            &kp TAB     &trans    &trans
+&none  &none   &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &none            &kp DELETE  &kp LC(N0)  &kp LC(MINUS)  &kp LC(PLUS)  &kp BACKSPACE    &none
+&none  &none   &kp NUMBER_4  &kp N5        &kp NUMBER_6  &kp PAGE_UP      &kp LEFT    &kp DOWN    &kp UP_ARROW   &kp RIGHT     &kp LC(R)        &none
+&none  &trans  &kp N7        &kp N8        &kp N9        &kp PAGE_DOWN    &kp LC(Z)   &kp LC(X)   &kp LC(C)      &kp LC(V)     &kp RIGHT_SHIFT  &none
+                             &kp N0        &trans        &kp LG(V)        &kp TAB     &trans      &kp LC(S)
             >;
         };
 
