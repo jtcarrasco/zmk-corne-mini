@@ -73,10 +73,10 @@
             // | GUI | CTRL | SHFT | LWR | SPC |   | ENT | RSE  | BKSP | ALT | ESC |
 
             bindings = <
-&none  &kp Q             &kp W               &kp E         &kp R  &kp T         &kp Y      &kp U  &kp I                &kp O                     &kp P                  &none
-&none  &kp A             &kp S               &kp D         &kp F  &kp G         &kp H      &kp J  &kp K                &kp L                     &kp SEMICOLON          &none
-&none  &mt LEFT_SHIFT Z  &mt LEFT_CONTROL X  &kp C         &kp V  &kp B         &kp N      &kp M  &kp COMMA            &mt RIGHT_CONTROL PERIOD  &mt RIGHT_SHIFT SLASH  &none
-                                             &kp LEFT_ALT  &mo 2  &kp ESCAPE    &kp SPACE  &mo 1  &mt RIGHT_GUI ENTER
+&none  &kp Q             &kp W               &kp E         &kp R           &kp T         &kp Y      &kp U            &kp I                &kp O                     &kp P                  &none
+&none  &kp A             &kp S               &kp D         &hm LEFT_GUI F  &kp G         &kp H      &hm RIGHT_GUI J  &kp K                &kp L                     &kp SEMICOLON          &none
+&none  &mt LEFT_SHIFT Z  &mt LEFT_CONTROL X  &kp C         &kp V           &kp B         &kp N      &kp M            &kp COMMA            &mt RIGHT_CONTROL PERIOD  &mt RIGHT_SHIFT SLASH  &none
+                                             &kp LEFT_ALT  &mo 2           &kp ESCAPE    &kp SPACE  &mo 1            &mt RIGHT_GUI ENTER
             >;
         };
 
@@ -90,10 +90,10 @@
             // | GUI | CTRL | SHFT | LWR | SPC |   | ENT | RSE  | BKSP | ALT | ESC |
 
             bindings = <
-&none  &none   &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &none            &kp DELETE  &kp LC(N0)  &kp LC(MINUS)  &kp LC(PLUS)  &kp BACKSPACE    &none
-&none  &none   &kp NUMBER_4  &kp N5        &kp NUMBER_6  &kp PAGE_UP      &kp LEFT    &kp DOWN    &kp UP_ARROW   &kp RIGHT     &kp LC(R)        &none
-&none  &trans  &kp N7        &kp N8        &kp N9        &kp PAGE_DOWN    &kp LC(Z)   &kp LC(X)   &kp LC(C)      &kp LC(V)     &kp RIGHT_SHIFT  &none
-                             &kp N0        &trans        &kp LG(V)        &kp TAB     &trans      &kp LC(S)
+&none  &none           &mt EXCLAMATION NUMBER_1  &mt AT_SIGN NUMBER_2      &mt HASH NUMBER_3        &none            &kp DELETE  &kp LC(N0)  &kp LC(MINUS)  &kp LC(PLUS)  &kp BACKSPACE    &none
+&none  &none           &mt DOLLAR NUMBER_4       &mt PERCENT N5            &mt CARET NUMBER_6       &kp PAGE_UP      &kp LEFT    &kp DOWN    &kp UP_ARROW   &kp RIGHT     &kp LC(R)        &none
+&none  &kp LEFT_SHIFT  &mt AMPERSAND N7          &mt ASTERISK N8           &mt LEFT_PARENTHESIS N9  &kp PAGE_DOWN    &kp LC(Z)   &kp LC(X)   &kp LC(C)      &kp LC(V)     &kp RIGHT_SHIFT  &none
+                                                 &mt RIGHT_PARENTHESIS N0  &trans                   &kp LG(V)        &kp TAB     &trans      &kp LC(S)
             >;
         };
 
@@ -107,10 +107,10 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&none  &trans        &kp F1  &kp F2   &kp F3  &trans       &trans          &kp MINUS             &kp EQUAL              &kp UNDER          &kp PLUS          &none
-&none  &kp CAPSLOCK  &kp F4  &kp F5   &kp F6  &kp GRAVE    &kp LEFT_BRACE  &kp RIGHT_BRACE       &kp LEFT_BRACKET       &kp RIGHT_BRACKET  &kp SINGLE_QUOTE  &none
-&none  &trans        &kp F7  &kp F8   &kp F9  &kp TILDE    &kp PIPE        &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp BACKSLASH      &kp RIGHT_SHIFT   &none
-                             &kp F10  &trans  &trans       &trans          &trans                &trans
+&none  &trans          &kp F1  &kp F2   &kp F3  &trans       &trans          &kp MINUS             &kp EQUAL              &kp UNDER          &kp PLUS          &none
+&none  &caps_word      &kp F4  &kp F5   &kp F6  &kp GRAVE    &kp LEFT_BRACE  &kp RIGHT_BRACE       &kp LEFT_BRACKET       &kp RIGHT_BRACKET  &kp SINGLE_QUOTE  &none
+&none  &kp LEFT_SHIFT  &kp F7  &kp F8   &kp F9  &kp TILDE    &kp PIPE        &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp BACKSLASH      &kp RIGHT_SHIFT   &none
+                               &kp F10  &trans  &trans       &trans          &trans                &trans
             >;
         };
     };
