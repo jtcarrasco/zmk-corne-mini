@@ -1,5 +1,4 @@
 #include <behaviors.dtsi>
-#include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 
 #define DEF 0
@@ -57,112 +56,98 @@
         };
     };
 
-    combos {
-        compatible = "zmk,combos";
-
-        escape {
-            bindings = <&kp ESCAPE>;
-            key-positions = <13 29>;
-        };
-
-        delete {
-            bindings = <&kp DELETE>;
-            key-positions = <15 21>;
-        };
-
-        perc {
-            bindings = <&kp PERCENT>;
-            key-positions = <5 17>;
-        };
-
-        equal {
-            bindings = <&kp EQUAL>;
-            key-positions = <28 16>;
-        };
-
-        dollar {
-            bindings = <&kp DOLLAR>;
-            key-positions = <4 16>;
-        };
-
-        pound {
-            bindings = <&kp POUND>;
-            key-positions = <3 15>;
-        };
-
-        at {
-            bindings = <&kp AT>;
-            key-positions = <2 14>;
-        };
-
-        backslash {
-            bindings = <&kp BACKSLASH>;
-            key-positions = <26 14>;
-        };
-
-        copy {
-            bindings = <&kp K_COPY>;
-            key-positions = <28 27>;
-        };
-
-        paste {
-            bindings = <&kp K_PASTE>;
-            key-positions = <26 27>;
-        };
-
-        star {
-            bindings = <&kp STAR>;
-            key-positions = <8 20>;
-        };
-
-        slash {
-            bindings = <&kp SLASH>;
-            key-positions = <32 20>;
-        };
-
-        plus {
-            bindings = <&kp PLUS>;
-            key-positions = <7 19>;
-        };
-
-        minus {
-            bindings = <&kp KP_MINUS>;
-            key-positions = <31 19>;
-        };
-
-        underscore {
-            bindings = <&kp UNDER>;
-            key-positions = <30 18>;
-        };
-
-        leftbrack {
-            bindings = <&kp LEFT_BRACKET>;
-            key-positions = <31 32>;
-        };
-
-        rightbrack {
-            bindings = <&kp RIGHT_BRACKET>;
-            key-positions = <33 32>;
-        };
-
-        para-less {
-            bindings = <&paraless>;
-            key-positions = <20 19>;
-        };
-
-        para-great {
-            bindings = <&paragreat>;
-            key-positions = <20 21>;
-        };
-    };
+    combos { compatible = "zmk,combos"; };
 
     //
+
+    macros {
+        SC_V: clipboard {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_press>, <&kp V &kp RIGHT_GUI>;
+
+            label = "CLIPBOARD";
+        };
+
+        SC_COPY: sc_cut {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_press>, <&kp LEFT_CONTROL &kp C>;
+
+            label = "SC_CUT";
+        };
+
+        SC_CUT: SC_CUT {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_press>, <&kp LEFT_CONTROL &kp X>;
+
+            label = "SC_CUT";
+        };
+
+        SC_PSTE: SC_PSTE {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_press>, <&kp LEFT_CONTROL &kp V>;
+
+            label = "SC_PSTE";
+        };
+
+        SC_SAVE: SC_SAVE {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_press>, <&kp LEFT_CONTROL &kp S>;
+
+            label = "SC_SAVE";
+        };
+
+        SC_RFH: SC_RFH {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_press>, <&kp LEFT_CONTROL &kp R>;
+
+            label = "SC_RFH";
+        };
+
+        SC_AC: SC_AC {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_press>, <&kp LEFT_CONTROL &kp N0>;
+
+            label = "SC_AC";
+        };
+
+        SC_UNDO: SC_UNDO {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_press>, <&kp LEFT_CONTROL &kp Z>;
+
+            label = "SC_UNDO";
+        };
+
+        SC_OUT: SC_OUT {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_press>, <&kp LEFT_CONTROL &kp MINUS>;
+
+            label = "SC_OUT";
+        };
+
+        SC_IN: SC_IN {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_press>, <&kp LEFT_CONTROL &kp PLUS>;
+
+            label = "SC_IN";
+        };
+    };
 
     keymap {
         compatible = "zmk,keymap";
 
         DEF {
-                display-name = "Base";
+            display-name = "Base";
+
             // -----------------------------------------------------------------------------------------
             // |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  |
             // |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |
@@ -170,15 +155,16 @@
             // | GUI | CTRL | SHFT | LWR | SPC |   | ENT | RSE  | BKSP | ALT | ESC |
 
             bindings = <
-&kp TAB    &kp Q       &kp W        &kp E       &kp R        &kp T        &kp Y    &kp U        &kp I          &kp O        &kp P          &kp BACKSPACE
-&kp LSHFT  &hm LGUI A  &hm LSHFT S  &hm LALT D  &hm LCTRL F  &kp G        &kp H    &hm RCTRL J  &hm RALT K     &hm RSHFT L  &hm RGUI SEMI  &kp SQT
-&kp LCTRL  &kp Z       &kp X        &kp C       &kp V        &kp B        &kp N    &kp M        &kp COMMA      &kp DOT      &kp FSLH       &kp RSHFT
-                                    &kp LGUI    &mo 1        &kp SPACE    &kp RET  &lt 2 TAB    &kp BACKSPACE
+&none  &kp Q             &kp W  &kp E         &kp R  &kp T         &kp Y      &kp U  &kp I                &kp O    &kp P          &none
+&none  &kp A             &kp S  &kp D         &kp F  &kp G         &kp H      &kp J  &kp K                &kp L    &kp SEMICOLON  &none
+&none  &mt LEFT_SHIFT Z  &kp X  &kp C         &kp V  &kp B         &kp N      &kp M  &kp COMMA            &kp DOT  &kp FSLH       &none
+                                &kp LEFT_ALT  &mo 1  &kp ESCAPE    &kp SPACE  &mo 2  &mt RIGHT_GUI ENTER
             >;
         };
 
-        NAV {
-                display-name = "Nav";
+        NUM {
+            display-name = "Num";
+
             // -----------------------------------------------------------------------------------------
             // |  TAB |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BKSP |
             // | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   | LFT | DWN |  UP | RGT |     |      |
@@ -186,15 +172,16 @@
             // | GUI | CTRL | SHFT | LWR | SPC |   | ENT | RSE  | BKSP | ALT | ESC |
 
             bindings = <
-&trans  &kp N1       &kp N2        &kp N3             &kp N4           &kp N5           &kp N6   &kp N7        &kp N8       &kp N9        &kp N0            &trans
-&trans  &hm LGUI N0  &hm LSHFT N4  &hm LALT UP_ARROW  &hm LCTRL DEL    &kp PAGE_UP      &kp N0   &hm RCTRL N4  &hm RALT N5  &hm RSHFT N6  &hm RGUI PAGE_UP  &trans
-&trans  &trans       &kp LEFT      &kp DOWN           &kp RIGHT_ARROW  &kp PAGE_DOWN    &trans   &kp N1        &kp N2       &kp N3        &kp PAGE_DOWN     &trans
-                                   &kp LGUI           &trans           &kp SPACE        &kp RET  &trans        &trans
+&none  &none   &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &none            &kp DELETE  &SC_AC    &SC_OUT       &SC_IN     &kp BACKSPACE    &none
+&none  &none   &kp NUMBER_4  &kp N5        &kp NUMBER_6  &kp PAGE_UP      &kp LEFT    &kp DOWN  &kp UP_ARROW  &kp RIGHT  &SC_RFH          &none
+&none  &trans  &kp N7        &kp N8        &kp N9        &kp PAGE_DOWN    &SC_UNDO    &SC_CUT   &SC_COPY      &SC_PSTE   &kp RIGHT_SHIFT  &none
+                             &kp N0        &trans        &SC_V            &kp TAB     &trans    &trans
             >;
         };
 
-        SYM {
-                display-name = "Sym";
+        FUN {
+            display-name = "Fun";
+
             // -----------------------------------------------------------------------------------------
             // |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BKSP |
             // | CTRL |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
@@ -202,20 +189,10 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&trans  &kp EXCL  &kp AT          &kp HASH           &kp DLLR         &kp PRCNT    &kp CARET  &kp AMPS         &kp ASTRK      &kp LEFT_PARENTHESIS  &kp RPAR       &trans
-&trans  &trans    &trans          &hm LALT UP_ARROW  &hm LCTRL SQT    &kp GRAVE    &kp MINUS  &hm RCTRL EQUAL  &hm RALT LBKT  &hm RSHFT RBKT        &hm RGUI BSLH  &trans
-&trans  &trans    &kp LEFT_ARROW  &kp DOWN_ARROW     &kp RIGHT_ARROW  &kp TILDE    &kp UNDER  &kp PLUS         &kp LBRC       &kp RBRC              &kp PIPE       &trans
-                                  &kp LGUI           &trans           &kp SPACE    &kp RET    &trans           &trans
-            >;
-        };
-
-        ADJ {
-                display-name = "System";
-            bindings = <
-&trans  &kp F1        &kp F2         &kp F3        &kp F4      &kp F5            &kp F6  &kp F7  &kp F8  &kp F9  &kp F10      &trans
-&trans  &hm LGUI F11  &hm LSHFT F12  &trans        &trans      &studio_unlock            &trans  &trans  &trans  &trans  &trans       &trans
-&trans  &bt BT_SEL 0  &bt BT_SEL 1   &bt BT_SEL 2  &bt BT_CLR  &bt BT_CLR_ALL    &trans  &trans  &trans  &trans  &bootloader  &trans
-                                     &trans        &trans      &trans            &trans  &trans  &trans
+&none  &trans        &kp F1  &kp F2   &kp F3  &kp GRAVE    &trans          &kp MINUS             &kp EQUAL              &kp UNDER          &kp PLUS          &none
+&none  &kp CAPSLOCK  &kp F4  &kp F5   &kp F6  &kp TILDE    &kp LEFT_BRACE  &kp RIGHT_BRACE       &kp LEFT_BRACKET       &kp RIGHT_BRACKET  &kp SINGLE_QUOTE  &none
+&none  &trans        &kp F7  &kp F8   &kp F9  &trans       &kp PIPE        &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp BACKSLASH      &kp RIGHT_SHIFT   &none
+                             &kp F10  &trans  &trans       &trans          &trans                &SC_SAVE
             >;
         };
     };
