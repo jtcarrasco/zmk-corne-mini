@@ -73,10 +73,10 @@
             // | GUI | CTRL | SHFT | LWR | SPC |   | ENT | RSE  | BKSP | ALT | ESC |
 
             bindings = <
-&none  &kp Q             &kp W               &kp E                 &kp R           &kp T         &kp Y      &kp U       &kp I                &kp O                &kp P                      &none
-&none  &hm LEFT_SHIFT A  &hm LEFT_CONTROL S  &kp D                 &hm LEFT_WIN F  &kp G         &kp H      &hm RWIN J  &kp K                &hm RIGHT_CONTROL L  &hm RIGHT_SHIFT SEMICOLON  &none
-&none  &kp Z             &kp X               &kp C                 &kp V           &kp B         &kp N      &kp M       &kp COMMA            &kp PERIOD           &kp SLASH                  &none
-                                             &kp LS(LC(LEFT_ALT))  &mo 2           &kp ESCAPE    &kp SPACE  &mo 1       &mt RIGHT_GUI ENTER
+&none  &kp Q             &kp W               &kp E         &kp R  &kp T         &kp Y      &kp U  &kp I               &kp O                     &kp P                      &none
+&none  &kp A             &kp S               &kp D         &kp F  &kp G         &kp H      &kp J  &kp K               &kp L                     &hm RIGHT_SHIFT SEMICOLON  &none
+&none  &hm LEFT_SHIFT Z  &hm LEFT_CONTROL X  &kp C         &kp V  &kp B         &kp N      &kp M  &kp COMMA           &hm RIGHT_CONTROL PERIOD  &hm RSHFT SLASH            &none
+                                             &kp LEFT_ALT  &mo 2  &kp ESCAPE    &kp SPACE  &mo 1  &mt LEFT_GUI ENTER
             >;
         };
 
